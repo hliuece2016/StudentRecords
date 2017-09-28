@@ -3,13 +3,10 @@ package daoImpl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.sun.xml.internal.ws.message.stream.StreamAttachment;
 
 import dao.studentDAO;
-import daoFactory.DaoFactory;
 import vo.studentRecord;
 
 public class StudentImpl implements studentDAO {
