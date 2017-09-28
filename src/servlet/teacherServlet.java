@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import daoFactory.DaoFactory;
-import daoImpl.TeacherImpl;
-import dbc.DatabaseConnection;
 import vo.studentRecord;
 
 /**
