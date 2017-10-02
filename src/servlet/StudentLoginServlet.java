@@ -48,7 +48,7 @@ public class StudentLoginServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			if(student == null) {
-				req.setAttribute("error", "Username or password is wrong, please relogin! " + username +" "+ password);
+				req.setAttribute("error", "Username or password is wrong, please relogin! \n" + username +" "+ password);
 	            req.getRequestDispatcher("login.jsp").forward(req, resp);
 			}
 			else {

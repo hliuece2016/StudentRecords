@@ -8,4 +8,5 @@ public interface studentDAO {
 	public studentRecord login(String username, String password) throws Exception;
 	public studentRecord checkUsername(String username) throws Exception;
 	public boolean register(studentRecord student) throws Exception;
+	public boolean changePass(String name, String password) throws Exception;
 }

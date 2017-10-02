@@ -54,5 +54,11 @@ public class StudentProxy implements studentDAO {
 		
 		return flag;
 	}
+	
+	public boolean changePass(String name, String password) throws Exception{
+		boolean flag = this.dao.changePass(name, password);
+		this.conn.close();
+		return flag;
+	}
 
 }

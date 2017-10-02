@@ -42,7 +42,8 @@ public class StudentServlet extends HttpServlet {
 		info.add("HOMEWORK:" + '\t' + student.getHomework());
 		info.add("MIDTERM:" + '\t' + student.getMidterm());
 		info.add("FINAL:" + '\t' + student.getFinal());
-
+		
+	
 		req.setAttribute("info", info);
 		req.getRequestDispatcher("student.jsp").forward(req, resp);
 	}

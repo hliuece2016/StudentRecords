@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>StudentRecords</display-name>
   <welcome-file-list>
-    <welcome-file>welcome.html</welcome-file>
+    <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>StudentServlet</servlet-name>
@@ -53,19 +53,19 @@
     <url-pattern>/studentRegister</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>welcomeServlet</servlet-name>
-    <servlet-class>servlet.WelcomeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>welcomeServlet</servlet-name>
-    <url-pattern>/welcomepage</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>teacherSearchServlet</servlet-name>
     <servlet-class>servlet.TeacherSearchServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>teacherSearchServlet</servlet-name>
     <url-pattern>/teacherSearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>changePasswordServlet</servlet-name>
+    <servlet-class>servlet.ChangePasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>changePasswordServlet</servlet-name>
+    <url-pattern>/changePassword</url-pattern>
   </servlet-mapping>
 </web-app>

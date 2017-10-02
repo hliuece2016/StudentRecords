@@ -6,18 +6,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import daoFactory.DaoFactory;
 
 /**
- * Servlet implementation class WelcomeServlet
+ * Servlet implementation class ChangePassword
  */
-@WebServlet("/WelcomeServlet")
-public class WelcomeServlet extends HttpServlet {
+@WebServlet("/ChangePassword")
+public class ChangePasswordServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WelcomeServlet() {
+    public ChangePasswordServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +36,22 @@ public class WelcomeServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int job = Integer.parseInt(req.getParameter("job"));
-		if(job == 1) {
-			resp.sendRedirect("login.jsp");
+		String pass = (String)request.getParameter("newpass");
+		HttpSession ses = request.getSession();
+		String name = (String)ses.getAttribute("username");
+		try {
+			DaoFactory.getStudentInstance().changePass(name, pass);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		else {
-			resp.sendRedirect("teacherLogin.jsp");
-		}
+		
+		String info = "Successful!";
+		request.setAttribute("changeinfo", info);
+		request.getRequestDispatcher("changepassword.jsp").forward(request,response);
+		//response.sendRedirect("changepassword.jsp");
 	}
 
 }

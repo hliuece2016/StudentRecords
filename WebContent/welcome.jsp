@@ -9,7 +9,7 @@
 <body>
 
 <%
-	if(request.getParameter("job").equals("student"))
+	if(request.getParameter("job").equals("1"))
 		response.sendRedirect(request.getContextPath() + "/login.jsp");
 	else
 	response.sendRedirect(request.getContextPath() + "/teacherLogin.jsp");

@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
 import dao.studentDAO;
 import vo.studentRecord;
 
@@ -27,8 +26,9 @@ public class StudentImpl implements studentDAO {
 		this.pst = conn.prepareStatement(buffer.toString());
 		rs = this.pst.executeQuery();
 
-		if(rs == null) return sr;
-		
+		if (rs == null)
+			return sr;
+
 		while (rs.next()) {
 			sr = new studentRecord();
 			sr.setId(rs.getInt("ID"));
@@ -71,7 +71,7 @@ public class StudentImpl implements studentDAO {
 		pst.setString(2, password);
 		rs = pst.executeQuery();
 		studentRecord sr = new studentRecord();
-		
+
 		if (rs.next()) {
 			sr.setId(rs.getInt("ID"));
 			sr.setName(rs.getString("NAME"));
@@ -93,7 +93,7 @@ public class StudentImpl implements studentDAO {
 		}
 		return null;
 	}
-	
+
 	public boolean register(studentRecord student) throws Exception {
 
 		this.st = conn.createStatement();
@@ -104,6 +104,15 @@ public class StudentImpl implements studentDAO {
 
 		st.close();
 
+		return true;
+	}
+	
+	public boolean changePass(String name, String password) throws Exception{
+		this.st = conn.createStatement();
+		String sql = "update student_tbl set PASSWORD = '" + password +
+				"' where NAME = '" + name + "';";
+		st.executeUpdate(sql);
+		st.close();
 		return true;
 	}
 }
