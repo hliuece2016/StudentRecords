@@ -51,7 +51,6 @@ public class ChangePasswordServlet extends HttpServlet {
 		String info = "Successful!";
 		request.setAttribute("changeinfo", info);
 		request.getRequestDispatcher("changepassword.jsp").forward(request,response);
-		//response.sendRedirect("changepassword.jsp");
 	}
 
 }

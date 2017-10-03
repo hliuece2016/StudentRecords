@@ -27,8 +27,8 @@
 </script>
 </head>
 <body>
-	<div class="aa">
-		<div class="aaa">
+	<div class="middle-div">
+		<div class="my-div">
 
 			<form name="myForm" action="changePassword"
 				onsubmit="return validateForm()" method="post">
@@ -46,7 +46,7 @@
 					</tr>
 					<tr>
 						<td><input type="submit" value="submit"></td>
-						<td><a href="student.jsp"><button>back</button></a></td>
+						<td><a href="student.jsp"><button type = "button">back</button></a></td>
 				</table>
 			</form>
 			<%

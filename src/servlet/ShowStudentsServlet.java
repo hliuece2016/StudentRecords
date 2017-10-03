@@ -48,8 +48,17 @@ public class ShowStudentsServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		ArrayList<String> info = new ArrayList<>();
-		for(int i = 0; i < list.size(); i++)
-			info.add(list.get(i).toString());
+		for(int i = 0; i < list.size(); i++) {
+			String str = "<tr>";
+			str += "<td>" + list.get(i).getId() + "</td>";
+			str += "<td>" + list.get(i).getName() + "</td>";
+			str += "<td>" + list.get(i).getHomework() + "</td>";
+			str += "<td>" + list.get(i).getMidterm() + "</td>";
+			str += "<td>" + list.get(i).getFinal() + "</td>";
+			str += "</tr>";
+
+			info.add(new String(str));
+		}
 		
 		request.setAttribute("info", info);
 		request.getRequestDispatcher("/showAllStudent.jsp").forward(request, response);

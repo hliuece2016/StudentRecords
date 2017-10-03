@@ -16,6 +16,7 @@ public class DatabaseConnection {
 		try{
 			Class.forName(DBDRIVER);
 			//conn = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
+			//use below code to reduce warning of connection process.
 			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student?" +
 			"useUnicode=true&characterEncoding=utf-8&useSSL=false","root","342516");
 		}catch (Exception e) {

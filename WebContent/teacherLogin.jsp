@@ -9,11 +9,28 @@
 <link rel="stylesheet" href="css/mystyle.css">
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+	function validateForm() {
+		var x = document.forms["myForm"]["username"].value;
+		var y = document.forms["myForm"]["password"].value;
+		if (x == null || x == "") {
+			alert("Input username");
+			return false;
+		} else {
+			if (y == null || y == "") {
+				alert("Input password");
+				return false;
+			}
+		}
+	}
+</script>
 </head>
 <body>
-	<div class="aa">
-		<div class="aaa">
-			<form action="teacherLogin" method="post">
+	<div class="middle-div">
+		<div class="my-div">
+			<p>For now, there is only one account:teacher(password:teacher).</p>
+			<form name="myForm" action="teacherLogin"
+				onsubmit="return validateForm()" method="post">
 				<table>
 					<tr>
 						<td>Username:</td>
@@ -25,19 +42,14 @@
 					</tr>
 					<tr>
 						<td><input type="submit" value="login" /></td>
-						<td><a href="welcome.html"><input type="button"
-								value="back"></input></a></td>
+						<td><a href="job.html"><input type="button" value="back"></input></a></td>
 					</tr>
 				</table>
 			</form>
-			<%
-				String error = (String) request.getAttribute("error");
-				if (error != null) {
-			%>
+			<%String error = (String) request.getAttribute("error");
+			if (error != null) {%>
 			<h3><%=error%></h3>
-			<%
-				}
-			%>
+			<%}%>
 		</div>
 	</div>
 </body>

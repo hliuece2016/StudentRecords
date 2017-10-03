@@ -4,7 +4,7 @@ import dao.studentDAO;
 import daoImpl.StudentImpl;
 import dbc.DatabaseConnection;
 import vo.studentRecord;
-
+//proxy class only does connection job.
 public class StudentProxy implements studentDAO {
 
 	private DatabaseConnection conn = null;

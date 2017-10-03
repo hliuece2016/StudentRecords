@@ -2,13 +2,12 @@ package daoProxy;
 
 
 import java.util.ArrayList;
-import java.util.List;
-
 import dao.teacherDAO;
 import daoImpl.TeacherImpl;
 import dbc.DatabaseConnection;
 import vo.studentRecord;
 
+//proxy class only does connection work.
 public class TeacherProxy implements teacherDAO {
 
 	private DatabaseConnection conn = null;

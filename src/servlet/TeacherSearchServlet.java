@@ -55,11 +55,11 @@ public class TeacherSearchServlet extends HttpServlet {
 		}
 		else {
 			ArrayList<String> info = new ArrayList<>();
-			info.add("ID:" + '\t' + student.getId());
-			info.add("NAME:" + '\t' + student.getName());
-			info.add("HOMEWORK:" + '\t' + student.getHomework());
-			info.add("MIDTERM:" + '\t' + student.getMidterm());
-			info.add("FINAL:" + '\t' + student.getFinal());
+			info.add("<tr><td>ID:</td>" + "<td>" + student.getId() + "</td></tr>");
+			info.add("<tr><td>NAME:" + "<td>" + student.getName() + "</td></tr>");
+			info.add("<tr><td>HOMEWORK:" + "<td>" + student.getHomework() + "</td></tr>");
+			info.add("<tr><td>MIDTERM:" + "<td>" + student.getMidterm() + "</td></tr>");
+			info.add("<tr><td>FINAL:" + "<td>" + student.getFinal() + "</td></tr>");
 	
 			req.setAttribute("info1", info);
 			req.getRequestDispatcher("/teacher.jsp").forward(req, resp);

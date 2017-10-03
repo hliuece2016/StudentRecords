@@ -41,6 +41,7 @@ public class TeacherLoginServlet extends HttpServlet {
 		String username = (String)req.getParameter("username");
 		String password = (String)req.getParameter("password");
 		studentRecord student = null;
+		//here I used function from student dao.
 		try {
 			student = DaoFactory.getStudentInstance().login(username, password);
 		} catch (Exception e) {
@@ -52,6 +53,7 @@ public class TeacherLoginServlet extends HttpServlet {
             req.getRequestDispatcher("teacherLogin.jsp").forward(req, resp);
 		}
 		else {
+			req.getSession().setAttribute("username", username);
 			req.getRequestDispatcher("teacher.jsp").forward(req, resp);;
 		}
 	}

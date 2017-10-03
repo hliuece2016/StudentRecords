@@ -9,11 +9,27 @@
 <link rel="stylesheet" href="css/mystyle.css">
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+	function validateForm() {
+		var x = document.forms["myForm"]["username"].value;
+		var y = document.forms["myForm"]["password"].value;
+		if (x == null || x == "") {
+			alert("Input username");
+			return false;
+		} else {
+			if (y == null || y == "") {
+				alert("Input password");
+				return false;
+			}
+		}
+	}
+</script>
 </head>
 <body>
-	<div class="aa">
-		<div class="aaa">
-			<form action="studentRegister" method="post">
+	<div class="middle-div">
+		<div class="my-div">
+			<form name="myForm" action="studentRegister"
+				onsubmit="return validateForm()" method="post">
 				<table>
 					<tr>
 						<td>Username:</td>
@@ -25,7 +41,7 @@
 					</tr>
 					<tr>
 						<td><input type="submit" value="register" /></td>
-						<td><a href="login.jsp"><input type="button" value="back"></input></a></td>
+						<td><a href="studentLogin.jsp"><input type="button" value="back"></input></a></td>
 					</tr>
 				</table>
 			</form>

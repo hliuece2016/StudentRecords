@@ -24,26 +24,25 @@ public class StudentServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession ses = req.getSession();
-		String username = (String)ses.getAttribute("username");
+		String username = (String) ses.getAttribute("username");
 		resp.setContentType("text/html;charset=UTF-8");
 
 		studentRecord student = new studentRecord();
 		try {
 			student = new studentRecord(DaoFactory.getStudentInstance().getByName(username));
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		ArrayList<String> info = new ArrayList<>();
-		info.add("ID:" + '\t' + student.getId());
-		info.add("NAME:" + '\t' + student.getName());
-		info.add("HOMEWORK:" + '\t' + student.getHomework());
-		info.add("MIDTERM:" + '\t' + student.getMidterm());
-		info.add("FINAL:" + '\t' + student.getFinal());
-		
-	
+		info.add("<tr><td>ID:</td>" + "<td>" + student.getId() + "</td></tr>");
+		info.add("<tr><td>NAME:" + "<td>" + student.getName() + "</td></tr>");
+		info.add("<tr><td>HOMEWORK:" + "<td>" + student.getHomework() + "</td></tr>");
+		info.add("<tr><td>MIDTERM:" + "<td>" + student.getMidterm() + "</td></tr>");
+		info.add("<tr><td>FINAL:" + "<td>" + student.getFinal() + "</td></tr>");
+
 		req.setAttribute("info", info);
 		req.getRequestDispatcher("student.jsp").forward(req, resp);
 	}

@@ -13,70 +13,81 @@
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="aa">
-		<div class="aaa">
-			<form action="teacherSearch" method="post">
+	<jsp:include page="teacherTop.jsp" />
+	<div class="middle-div">
+		<div class="my-div">
+			<div class = "small-div">
+				<form action="teacherSearch" method="post">
+					<table>
+						<tr>
+							<td>Student ID:</td>
+							<td><input type="text" name="studentid"></td>
+						</tr>
+
+						<tr>
+							<td><input type="submit" value="submit"></td>
+							<td><a href="job.html"><button type="button">log
+										out</button></a></td>
+						</tr>
+					</table>
+				</form>
+				<%
+					String error = (String) request.getAttribute("error");
+					if (error != null) {
+				%>
+				<h3><%=error%></h3>
+				<%
+					}
+				%>
+				<%
+					ArrayList<String> info1 = (ArrayList<String>) request.getAttribute("info1");
+					if (info1 != null) {
+						Iterator<String> iter = info1.iterator();
+				%>
 				<table>
-					<tr>
-						<td>Student ID:</td>
-						<td><input type="text" name="studentid"></td>
-					</tr>
-
-					<tr>
-						<td><input type="submit" value="submit"></td>
-						<td><a href="welcome.html"><button type = "button">log out</button></a></td>
-					</tr>
+					<%
+						while (iter.hasNext()) {
+					%>
+					<%=iter.next()%>
+					<%
+						}
+						}
+					%>
 				</table>
-			</form>
-			<%
-				String error = (String) request.getAttribute("error");
-				if (error != null) {
-			%>
-			<h3><%=error%></h3>
-			<%
-				}
-			%>
-			<%
-				ArrayList<String> info1 = (ArrayList<String>) request.getAttribute("info1");
-				if (info1 != null) {
-					Iterator<String> iter = info1.iterator();
-					while (iter.hasNext()) {
-			%>
-			<h2><%=iter.next()%></h2>
-			<%
-				}
-				}
-			%>
+			</div>
+			<div class = "small-div">
+				<form action="teacher" method="post">
+					<table>
+						<tr>
+							<td>Update</td>
+						</tr>
+						<tr>
+							<td>Student ID:</td>
+							<td><input type="number" name="studentid2"></td>
+						</tr>
+						<tr>
+							<td>NAME:</td>
+							<td><input type="text" name="studentname"></td>
+						</tr>
+						<tr>
+							<td>HOMEWORK:</td>
+							<td><input type="number" name="homework"></td>
+						</tr>
+						<tr>
+							<td>MIDTERM:</td>
+							<td><input type="number" name="midterm"></td>
+						</tr>
+						<tr>
+							<td>FINALEXAM:</td>
+							<td><input type="number" name="finalexam"></td>
+						</tr>
 
-			<form action="teacher" method="post">
-				<table>
-					<tr>
-						<td>Student ID:</td>
-						<td><input type="number" name="studentid2"></td>
-					</tr>
-					<tr>
-						<td>NAME:</td>
-						<td><input type="text" name="studentname"></td>
-					</tr>
-					<tr>
-						<td>HOMEWORK:</td>
-						<td><input type="number" name="homework"></td>
-					</tr>
-					<tr>
-						<td>MIDTERM:</td>
-						<td><input type="number" name="midterm"></td>
-					</tr>
-					<tr>
-						<td>FINALEXAM:</td>
-						<td><input type="number" name="finalexam"></td>
-					</tr>
-
-					<tr>
-						<td><input type="submit" value="add"></td>
-					</tr>
-				</table>
-			</form>
-
+						<tr>
+							<td><input type="submit" value="add"></td>
+						</tr>
+					</table>
+				</form>
+			</div>
 			<form action="showAllStudent" method="post">
 				<table>
 					<tr>
@@ -84,20 +95,6 @@
 					</tr>
 				</table>
 			</form>
-			<%
-				ArrayList<String> info2 = (ArrayList<String>) request.getAttribute("info2");
-				if (info2 != null) {
-			%>
-			<h3><%="" + '\t' + "ID" + '\t' + "Name" + '\t' + "homework" + '\t' + "midterm" + '\t' + "finalExam"%></h3>
-			<%
-				Iterator<String> iter = info2.iterator();
-					while (iter.hasNext()) {
-			%>
-			<h3><%=iter.next()%></h3>
-			<%
-				}
-				}
-			%>
 		</div>
 	</div>
 </body>

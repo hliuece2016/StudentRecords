@@ -9,11 +9,28 @@
 <link rel="stylesheet" href="css/mystyle.css">
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script>
+	function validateForm() {
+		var x = document.forms["myForm"]["username"].value;
+		var y = document.forms["myForm"]["password"].value;
+		if (x == null || x == "") {
+			alert("Input username");
+			return false;
+		} else {
+			if (y == null || y == "") {
+				alert("Input password");
+				return false;
+			}
+		}
+	}
+</script>
 </head>
 <body>
-	<div class="aa">
-		<div class="aaa">
-			<form action="studentLogin" method="post">
+	<div class="middle-div">
+		<div class="my-div">
+		<p>Test account: bob(password:1111)</p>
+			<form name="myForm" action="studentLogin"
+				onsubmit="return validateForm()" method="post">
 				<table>
 					<tr>
 						<td>User Name:</td>
@@ -27,7 +44,7 @@
 						<td><input type="submit" value="login"></td>
 						<td><a href="register.html"><input type="button"
 								value="register"></input></a></td>
-						<td><a href="welcome.html"><input type="button"
+						<td><a href="job.html"><input type="button"
 								value="back"></input></a></td>
 						<td><input type='hidden' id='btnType' name='btnType' /></td>
 					</tr>

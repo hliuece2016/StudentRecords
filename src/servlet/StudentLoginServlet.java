@@ -49,9 +49,10 @@ public class StudentLoginServlet extends HttpServlet {
 			}
 			if(student == null) {
 				req.setAttribute("error", "Username or password is wrong, please relogin! \n" + username +" "+ password);
-	            req.getRequestDispatcher("login.jsp").forward(req, resp);
+	            req.getRequestDispatcher("studentLogin.jsp").forward(req, resp);
 			}
 			else {
+				//use session attribute to store the user name, later page may use it.
 				req.getSession().setAttribute("username", username);
 				req.getRequestDispatcher("student.jsp").forward(req, resp);
 			}

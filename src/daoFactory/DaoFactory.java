@@ -7,11 +7,11 @@ import daoProxy.TeacherProxy;
 
 public class DaoFactory {
 
-	public static studentDAO getStudentInstance() throws Exception{
+	public static studentDAO getStudentInstance() throws Exception {
 		return new StudentProxy();
 	}
-	
-	public static teacherDAO getTeacherInstance() throws Exception{
+
+	public static teacherDAO getTeacherInstance() throws Exception {
 		return new TeacherProxy();
 	}
 }

@@ -13,16 +13,15 @@
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<jsp:include page="top.jsp"/>
-	<div class="aa">
-		<div class="aaa">
+	<jsp:include page="studentTop.jsp" />
+	<div class="middle-div">
+		<div class="my-div">
 			<form action="student" method="post">
 				<table>
 					<tr>
 						<td><input type="submit" value="myRecord"></td>
-						<td>
-							 <a href="welcome.html"><button type = "button">log out</button></a>
-						</td>
+						<td><a href="job.html"><button type="button">log
+									out</button></a></td>
 					</tr>
 				</table>
 			</form>
@@ -30,14 +29,17 @@
 				ArrayList<String> info = (ArrayList<String>) request.getAttribute("info");
 				if (info != null) {
 					Iterator<String> iter = info.iterator();
+			%>
+			<table>
+				<%
 					while (iter.hasNext()) {
-			%>
-			<h2><%=iter.next()%></h2>
-			<%
-				}
-				}
-			%>
-			
+				%>
+				<%=iter.next()%>
+				<%
+					}
+					}
+				%>
+			</table>
 		</div>
 	</div>
 </body>

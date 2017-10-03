@@ -106,11 +106,10 @@ public class StudentImpl implements studentDAO {
 
 		return true;
 	}
-	
-	public boolean changePass(String name, String password) throws Exception{
+
+	public boolean changePass(String name, String password) throws Exception {
 		this.st = conn.createStatement();
-		String sql = "update student_tbl set PASSWORD = '" + password +
-				"' where NAME = '" + name + "';";
+		String sql = "update student_tbl set PASSWORD = '" + password + "' where NAME = '" + name + "';";
 		st.executeUpdate(sql);
 		st.close();
 		return true;

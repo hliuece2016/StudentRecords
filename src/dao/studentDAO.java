@@ -3,6 +3,7 @@ package dao;
 import vo.studentRecord;
 
 public interface studentDAO {
+	//define student operation
 	public studentRecord getById(int id) throws Exception;
 	public studentRecord getByName(String name) throws Exception;
 	public studentRecord login(String username, String password) throws Exception;

@@ -13,22 +13,31 @@
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="aa">
-		<div class="aaa">
+	<jsp:include page="teacherTop.jsp" />
+	<div class="middle-div">
+		<div class="my-div">
 			<%
 				ArrayList<String> info = (ArrayList<String>) request.getAttribute("info");
 				if (info != null) {
 			%>
-			<h3><%="" + '\t' + "ID" + '\t' + "Name" + '\t' + "homework" + '\t' + "midterm" + '\t' + "finalExam"%></h3>
-			<%
-				Iterator<String> iter = info.iterator();
-					while (iter.hasNext()) {
-			%>
-			<h3><%=iter.next()%></h3>
-			<%
-				}
-				}
-			%>
+			<table>
+				<tr>
+					<td>---ID---</td>
+					<td>NAME---</td>
+					<td>HOMEWORK---</td>
+					<td>MIDTERM---</td>
+					<td>FINAL---</td>
+				</tr>
+				<%
+					Iterator<String> iter = info.iterator();
+						while (iter.hasNext()) {
+				%>
+				<%=iter.next()%>
+				<%
+					}
+					}
+				%>
+			</table>
 			<a href="teacher.jsp"><input type="button" value="back"></input></a>
 		</div>
 	</div>

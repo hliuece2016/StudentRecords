@@ -42,6 +42,7 @@ public class StudentRegisterServlet extends HttpServlet {
 		student.setName(req.getParameter("username"));
 		student.setPassword(req.getParameter("password"));
 		studentRecord check = null;
+		//check if user name is used
 		try {
 			check = DaoFactory.getStudentInstance().checkUsername(student.getName());
 		} catch (Exception e1) {
@@ -57,11 +58,11 @@ public class StudentRegisterServlet extends HttpServlet {
 			}
 			
 			req.setAttribute("info", "please login. " + student.getName());
-			req.getRequestDispatcher("/login.jsp").forward(req, resp);;
+			req.getRequestDispatcher("/studentLogin.jsp").forward(req, resp);;
 		}
 		else {
 			req.setAttribute("info", "Username is used");
-			req.getRequestDispatcher("/register.jsp").forward(req, resp);;
+			req.getRequestDispatcher("/studentRegister.jsp").forward(req, resp);;
 		}
 	}
 
